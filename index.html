@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smartserve || Task 3 ||</title>
+<style>
+  .error {
+    color: red;
+  }
+  #outerdiv{
+    background-color: rgb(28, 33, 33);
+    display: flex;
+    margin: auto;
+    height: 30rem;
+    width: 30rem;
+    margin-top: 10rem;
+  }
+  #innerdiv{
+   background-color: rgb(0, 0, 0);
+   
+   margin: auto;
+   height: 20rem;
+    width: 20rem;
+    border-radius: 1rem;
+  }
+  h1{
+    margin-left: 4rem;
+  }
+  #emaillabel{
+    
+  }
+  input{
+    border-radius: 0.2rem;
+    margin-left: 5rem;
+  }
+  button{
+    background-color:  rgb(58, 194, 58);
+    color: white;
+    width: 10rem;
+    border: none;
+    border-radius: 0.1rem;
+    margin-left: 5rem;
+    margin:  10px 0.2;
+  }
+  form a {
+    margin:  100px 40;
+    color: #c4c4c4;
+    text-decoration-line: overline;
+    text-decoration-line: underline;
+    width: 5rem;
+    border: none;
+    border-radius: 0.1rem;
+    margin-left: 6rem;
+    font-size: smaller;
+    text-align: center;
+}
+.logo-container {
+    text-align: center;
+}
+
+.logo-image {
+    display: inline-block;
+     margin: 10px; 
+}
+
+</style>
+</head>
+<body>
+<div id="outerdiv">
+    <div id="innerdiv">
+      <div class="logo-container">
+        <img src="task3.jpg" alt="Logo" class="logo-image">
+    </div>
+    
+       <!-- <h1><span style="color: rgb(58, 194, 58);">SMART</span> <span style="color: white;">SERV</span></h1>-->
+<form id="userForm" onsubmit="validateForm()">
+  
+  <input  placeholder="Username" type="email" id="email" name="email" required>
+  <br><br>
+ 
+  <input placeholder="Password" id="password" name="password" required>
+  <span id="passwordError" class="error"></span>
+  <br><br>
+  <button type="submit">Login</button>
+  <br>
+  <a href="/">Forgot your password?</a>
+</form>
+</div>
+</div>
+<script>
+function validateForm() {
+  var email = document.getElementById("email").value;
+  var password = document.getElementById("password").value;
+  var passwordError = document.getElementById("passwordError");
+
+  // Check if the email is in valid format
+  var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailPattern.test(email)) {
+    alert("Please enter a valid email address.");
+    return false;
+  }
+
+  // Check if the password meets the requirements or not
+  var passwordPattern = /^(?=.[A-Z])(?=.\d)[a-zA-Z\d@]+$/;
+  if (!passwordPattern.test(password)) {
+    passwordError.textContent = "Password must contain at least one uppercase letter, one number, and only @ as special character.";
+    return false;
+  }
+
+  return true;
+}
+</script>
+
+</body>
+</html>
